@@ -12,16 +12,12 @@ public class Mouvement : MonoBehaviour
     [SerializeField] private CharacterController _character;
     private float _fallingSpeed;
     private XROrigin rig;
+    public float AdditionalHieght = 0.02f
     
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
+        FollowHeadset();
         bool IsGrounded = CheckIfGrounded();
         if (IsGrounded)
             _fallingSpeed = 0;
@@ -32,7 +28,12 @@ public class Mouvement : MonoBehaviour
         }
     }
 
-     
+    void FollowHeadset()
+    {
+        _character.height = rig.CameraInOriginSpaceHeight + AdditionalHieght;
+        Vector3 CapsuleCenter = transform.InverseTransformPoint(rig.Camera.gameObject.transform.position);
+        _character.center = new Vector3(CapsuleCenter.x, _character.height / 2 + _character.skinWidth, CapsuleCenter.z);
+    }
     private bool CheckIfGrounded()
     {
         Vector3 RayStart = transform.TransformPoint(_character.center);
