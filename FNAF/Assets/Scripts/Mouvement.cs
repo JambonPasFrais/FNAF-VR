@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -13,7 +14,14 @@ public class Mouvement : MonoBehaviour
     private float _fallingSpeed;
     [SerializeField] private XROrigin rig;
     public float AdditionalHeight = 0.02f;
-    
+
+    public GameObject Screamer;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Screamer.SetActive(true);
+    }
+
 
     private void FixedUpdate()
     {
