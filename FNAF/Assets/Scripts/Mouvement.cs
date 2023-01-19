@@ -9,9 +9,10 @@ public class Mouvement : MonoBehaviour
 {
     [SerializeField] private float _gravity = -9.81f;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private CharacterController _character;
     private float _fallingSpeed;
     private XROrigin rig;
-    private CharacterController character;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,15 +28,16 @@ public class Mouvement : MonoBehaviour
         else
         {
             _fallingSpeed += _gravity * Time.fixedDeltaTime;
-            character.Move(Vector3.up * _fallingSpeed * Time.fixedDeltaTime);
+            _character.Move(Vector3.up * _fallingSpeed * Time.fixedDeltaTime);
         }
     }
 
+     
     private bool CheckIfGrounded()
     {
-        Vector3 RayStart = transform.TransformPoint(character.center);
-        float RayLength = character.center.y + 0.01f;
-        bool HasHit = Physics.SphereCast(RayStart, character.radius, Vector3.down, out RaycastHit HitInfo, RayLength, _groundLayer);
+        Vector3 RayStart = transform.TransformPoint(_character.center);
+        float RayLength = _character.center.y + 0.01f;
+        bool HasHit = Physics.SphereCast(RayStart, _character.radius, Vector3.down, out RaycastHit HitInfo, RayLength, _groundLayer);
         return HasHit;
     }
 }
