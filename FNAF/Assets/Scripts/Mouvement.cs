@@ -12,7 +12,7 @@ public class Mouvement : MonoBehaviour
     [SerializeField] private CharacterController _character;
     private float _fallingSpeed;
     private XROrigin rig;
-    public float AdditionalHieght = 0.02f
+    public float AdditionalHieght = 0.02f;
     
 
     private void FixedUpdate()
