@@ -11,8 +11,8 @@ public class Mouvement : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private CharacterController _character;
     private float _fallingSpeed;
-    private XROrigin rig;
-    public float AdditionalHieght = 0.02f;
+    [SerializeField] private XROrigin rig;
+    public float AdditionalHeight = 0.02f;
     
 
     private void FixedUpdate()
@@ -30,7 +30,7 @@ public class Mouvement : MonoBehaviour
 
     void FollowHeadset()
     {
-        _character.height = rig.CameraInOriginSpaceHeight + AdditionalHieght;
+        _character.height = rig.CameraInOriginSpaceHeight + AdditionalHeight;
         Vector3 CapsuleCenter = transform.InverseTransformPoint(rig.Camera.gameObject.transform.position);
         _character.center = new Vector3(CapsuleCenter.x, _character.height / 2 + _character.skinWidth, CapsuleCenter.z);
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4443,8 +4443,9 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  _character: {fileID: 0}
-  AdditionalHieght: 0.02
+  _character: {fileID: 1429420079}
+  rig: {fileID: 1429420076}
+  AdditionalHeight: 0.02
 --- !u!143 &1429420079
 CharacterController:
   m_ObjectHideFlags: 0
