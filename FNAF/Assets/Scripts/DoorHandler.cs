@@ -15,6 +15,6 @@ public class DoorHandler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.MovePosition(_target.transform.position);
+        rb.MovePosition(_target.transform.position);    
     }
 }
