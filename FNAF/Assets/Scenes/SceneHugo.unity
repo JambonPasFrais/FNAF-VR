@@ -3653,6 +3653,8 @@ GameObject:
   - component: {fileID: 436253202}
   - component: {fileID: 436253201}
   - component: {fileID: 436253206}
+  - component: {fileID: 436253208}
+  - component: {fileID: 436253207}
   m_Layer: 0
   m_Name: Grabbable Handler
   m_TagString: Untagged
@@ -3719,7 +3721,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 436253207}
+        m_TargetAssemblyTypeName: GrabbableHandlerHandling, Assembly-CSharp
+        m_MethodName: ResetPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -3869,6 +3883,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9999996, z: 0.99999964}
   m_Center: {x: 0, y: -0.000015258789, z: 0.0000076293945}
+--- !u!114 &436253207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436253199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ca3ad99c2d78342aea4212141a32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &436253208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436253199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78539f21e5251c0428a43c28bacb5065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
 --- !u!850595691 &653349686
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -4978,6 +5017,7 @@ GameObject:
   - component: {fileID: 1374051616}
   - component: {fileID: 1374051615}
   - component: {fileID: 1374051619}
+  - component: {fileID: 1374051620}
   m_Layer: 0
   m_Name: Grabbable Handler
   m_TagString: Untagged
@@ -5050,7 +5090,19 @@ MonoBehaviour:
       m_Calls: []
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1374051620}
+        m_TargetAssemblyTypeName: GrabbableHandlerHandling, Assembly-CSharp
+        m_MethodName: ResetPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnFirstHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -5194,6 +5246,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9999996, z: 0.99999964}
   m_Center: {x: 0, y: -0.00001335144, z: 0.0000076293945}
+--- !u!114 &1374051620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374051613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ca3ad99c2d78342aea4212141a32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1429420074
 GameObject:
   m_ObjectHideFlags: 0
