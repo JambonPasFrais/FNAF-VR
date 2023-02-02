@@ -4884,6 +4884,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Light: {fileID: 168037849}
+  BatteryDuration: 0
+  LightState: 0
+  LightStateTimings: []
 --- !u!1 &1142202342
 GameObject:
   m_ObjectHideFlags: 0
