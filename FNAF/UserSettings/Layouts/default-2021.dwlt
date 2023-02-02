@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 985
+  controlID: 90
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 555.2
     height: 722.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,14 +120,14 @@ MonoBehaviour:
     y: 477.6
     width: 980.8
     height: 245.19998
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
   - {fileID: 17}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -177,7 +177,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Default
+  m_LastLoadedLayoutName: 
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 986
+  controlID: 43
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 987
+  controlID: 44
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Horror Game Floor Generator/source
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Horror Game Floor Generator/source
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Remy\Cours\M1\VR\Projet\FNAF-VR\FNAF
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 307b0000
-    m_LastClickedID: 31536
-    m_ExpandedIDs: 00000000f86100001e6200004e6200002463000026630000286300002e6300003263000032690000866900008a690000147b00006cb400006eb4000000ca9a3bffffff7f
+    m_SelectedIDs: 52660000
+    m_LastClickedID: 26194
+    m_ExpandedIDs: 00000000ea6500004866000054660000226d0000ce71000046c7000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f861000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000ea650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -412,7 +412,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 29.800018}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -487,10 +487,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 136.4}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7882feffe882feffa48cfeffae9ffeffaea0feffcea1feff4aa3feffbea3fefffea9feff00abfeff50abfeffdcb7feffd4b8fefff4c8fefff8cafeff62cbfeffe6dcfeff4ce6feffd403ffff1204ffff9c0cffff620dffff783bffffc645ffff0846ffffe44fffff4250ffff6c60ffff7860ffff8660ffff8c60ffffac67ffff5a7cffff987cffffb499ffff9aa1ffff1aa2ffff18a4ffff98a4ffff6ca5ffffd8a5ffff98a8fffff4a8ffff50a9ffffaca9ffff70aaffffe6d2ffff08d9ffffb2e0fffff6e0fffffee1ffffdaf8ffff42fbffff127f0000527f0000ce830000fe8400000e8500001a8500003e8500002686000036860000448600006a86000072860000dc8c0000129000001e900000ce94000074a80000f8ab0000ccb2000024b300002cb3000030b3000038b3000052b3000076b3000050d9000072d9000076d9000092d900009ad900009ed90000a6d900000eda0000
+      m_ExpandedIDs: 1ca8fefffaadfeffe2c9feff72d0feff3cd2feffa2d2feff36e6feffb6e9feffcceafeff5cf6feff2601ffff561fffff8a21ffffe021ffff282bffff4c3dffff943effff963effff2441ffff5e4affff2c84ffff6c93ffff38b2ffffa2b5ffffd8bcffff7ac6ffff20f9ffff16fbffff14690000de7e0000208000005c82000072820000cc820000ec820000f08200001e8c0000648c0000928d000000cc000004cc00006ccc000080cc000084cc0000aacc0000f6cc000000cd00008cdb0000fcdb0000d2dc00001add0000e4df000036e000003ee0000042e000004ee0000040f2000044f20000acf20000c4f20000eaf40000eef400005cf5000086f500008ef50000b8f500002cf600007e0d0100a60d0100cc0d0100d80d0100520f0100e8250100ec25010054260100862601007a2a0100b62a0100e82b0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -772,9 +772,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.8042061, y: 2.3468199, z: 7.459338}
+    m_Target: {x: 11.771868, y: 4.601516, z: 10.646186}
     speed: 2
-    m_Value: {x: 2.8042061, y: 2.3468199, z: 7.459338}
+    m_Value: {x: 11.771868, y: 4.601516, z: 10.646186}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -821,20 +821,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.07915681, y: 0.11901695, z: -0.009518427, w: 0.9896978}
+    m_Target: {x: 0.5810319, y: 0.0855428, z: -0.061586946, w: 0.80702883}
     speed: 2
-    m_Value: {x: 0.07768519, y: 0.11754489, z: -0.009223257, w: 0.9899815}
+    m_Value: {x: 0.5810307, y: 0.08554263, z: -0.06158682, w: 0.8070272}
   m_Size:
-    m_Target: 2.8154266
+    m_Target: 4.3964014
     speed: 2
-    m_Value: 2.8154266
+    m_Value: 4.3964014
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.06047
-    m_SpeedNormalized: 0.53
+    m_Speed: 1.0005
+    m_SpeedNormalized: 0.49999997
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1

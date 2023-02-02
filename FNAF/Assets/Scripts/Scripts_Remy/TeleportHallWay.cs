@@ -24,6 +24,7 @@ public class TeleportHallWay : MonoBehaviour
 
         Hallway.transform.rotation = Quaternion.Euler(0, rotation, 0);
 
-        FrontWalls.SetActive(false);
+        if(FrontWalls != null)
+            FrontWalls.SetActive(false);
     }
 }
