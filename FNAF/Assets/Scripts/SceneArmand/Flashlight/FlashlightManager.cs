@@ -8,14 +8,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class FlashlightManager : MonoBehaviour
 {
     [Header("Instance")]
-    public GameObject Light;
+    public GameObject BrightLight;
+    public GameObject FadeLight;
+    public GameObject ObscureLight;
 
+    [SerializeField]private GameObject _currentLight;
+    
     [Header("GD")]
     public float BatteryDuration;
+    public float BatteryCoefficient;
     public LightState LightState;
     public List<float> LightStateTimings = new List<float>();
 
-    private bool _isOn;
+    [SerializeField]private bool _isOn;
     
     // Start is called before the first frame update
     void Start()
@@ -23,27 +28,51 @@ public class FlashlightManager : MonoBehaviour
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(LightAction);
 
-        Light.SetActive(false);
+        _currentLight = BrightLight;
+        
+        _currentLight.SetActive(false);
         LightState = LightState.Bright;
         _isOn = false;
     }
 
     private void Update()
     {
-        if (_isOn)
+        if (_isOn && LightState != LightState.Obscure)
         {
             BatteryDuration -= Time.deltaTime;
-            if (BatteryDuration <= LightStateTimings[0] && BatteryDuration > LightStateTimings[1])
-                LightState = LightState.Bright;
-            else if (BatteryDuration <= LightStateTimings[1] && BatteryDuration > LightStateTimings[2])
-                LightState = LightState.Fade;
-            else
-                LightState = LightState.Obscure;
-
+            UpdateLightState();
         }
-        
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<BatteryComponent>())
+        {
+            Destroy(other);
+            BatteryDuration += BatteryCoefficient;
+            UpdateLightState();
+        }
+    }
+
+    private void UpdateLightState()
+    {
+        if (BatteryDuration > LightStateTimings[0])
+        {
+            LightState = LightState.Bright;
+            _currentLight = BrightLight;
+        }
+        else if (BatteryDuration <= LightStateTimings[0] && BatteryDuration > LightStateTimings[1])
+        {
+            LightState = LightState.Fade;
+            _currentLight = FadeLight;
+        }
+        else
+        {
+            LightState = LightState.Obscure;
+            _currentLight = ObscureLight;
+        }
+    }
+    
     private void LightAction(ActivateEventArgs arg)
     {
         if (_isOn)
@@ -54,13 +83,13 @@ public class FlashlightManager : MonoBehaviour
     
     private void TurnOnLight()
     {
-        Light.SetActive(true);
+        _currentLight.SetActive(true);
         _isOn = true;
     }
 
     private void TurnOffLight()
     {
-        Light.SetActive(false);
+        _currentLight.SetActive(false);
         _isOn = false;
     }
 }
