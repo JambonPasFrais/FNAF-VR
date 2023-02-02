@@ -1331,7 +1331,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27950
+  m_Name: pb_Mesh25748
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1502,6 +1502,7 @@ GameObject:
   - component: {fileID: 208640736}
   - component: {fileID: 208640735}
   - component: {fileID: 208640739}
+  - component: {fileID: 208640740}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -1910,7 +1911,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1879508616}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
@@ -1970,13 +1971,26 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
+--- !u!65 &208640740
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208640733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 1.005}
+  m_Center: {x: -2.8373837, y: -1.333179, z: 0.10068792}
 --- !u!43 &238677100
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28098
+  m_Name: pb_Mesh25976
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2397,8 +2411,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.012807678, y: 0.0029464322, z: 0.033802867}
-  m_Center: {x: 0.000046292553, y: -0.000001765438, z: -0.00031317485}
+  m_Size: {x: 0.0128076775, y: 0.0014516192, z: 0.033802867}
+  m_Center: {x: 0.00004629254, y: 0.000034473425, z: -0.00031317474}
 --- !u!1 &394349204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4300,6 +4314,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4443621514739756458, guid: 712db6dca3aff7b48988fbf4ee11b004, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8548223357936707098, guid: 712db6dca3aff7b48988fbf4ee11b004, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4572,7 +4590,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28006
+  m_Name: pb_Mesh25848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4771,6 +4789,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2074965722}
     m_Modifications:
+    - target: {fileID: 3914332909402398657, guid: 2b7777105adcabd46845c128053bcbaf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3914332909402398658, guid: 2b7777105adcabd46845c128053bcbaf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5141,8 +5163,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0012495327, y: 0.0029813747, z: 0.036566794}
-  m_Center: {x: -0.009330802, y: 0.008595446, z: 0.018976517}
+  m_Size: {x: 0.0018316173, y: 0.0029813747, z: 0.036566794}
+  m_Center: {x: -0.009039757, y: 0.008595446, z: 0.018976517}
 --- !u!1 &1780522195
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,7 +5215,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27978
+  m_Name: pb_Mesh25788
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5451,7 +5473,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28074
+  m_Name: pb_Mesh25952
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5616,6 +5638,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 208640734}
     m_Modifications:
+    - target: {fileID: 3914332909402398657, guid: 2b7777105adcabd46845c128053bcbaf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3914332909402398658, guid: 2b7777105adcabd46845c128053bcbaf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7189,6 +7215,7 @@ GameObject:
   - component: {fileID: 2074965724}
   - component: {fileID: 2074965723}
   - component: {fileID: 2074965727}
+  - component: {fileID: 2074965728}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -7597,7 +7624,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1303859282}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_HoverEntered:
@@ -7657,6 +7684,19 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
+--- !u!65 &2074965728
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074965721}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.005, z: 1.005}
+  m_Center: {x: -2.8373837, y: -1.333179, z: 0.10068792}
 --- !u!1 &2107850133
 GameObject:
   m_ObjectHideFlags: 0
