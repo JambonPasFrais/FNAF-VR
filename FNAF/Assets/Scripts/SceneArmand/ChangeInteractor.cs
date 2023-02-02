@@ -13,10 +13,4 @@ public class ChangeInteractor : MonoBehaviour
         DirectController.SetActive(true);
         RayController.SetActive(false);
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        DirectController.SetActive(false);
-        RayController.SetActive(true);
-    }
 }
