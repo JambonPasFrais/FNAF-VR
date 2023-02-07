@@ -12,7 +12,7 @@ public class FlashlightManager : MonoBehaviour
     public GameObject FadeLight;
     public GameObject ObscureLight;
 
-    [SerializeField]private GameObject _currentLight;
+    [SerializeField] private GameObject _currentLight;
     
     [Header("GD")]
     public float BatteryDuration;
@@ -48,7 +48,7 @@ public class FlashlightManager : MonoBehaviour
     {
         if (other.gameObject.GetComponent<BatteryComponent>())
         {
-            Destroy(other);
+            Destroy(other.gameObject);
             BatteryDuration += BatteryCoefficient;
             UpdateLightState();
         }
