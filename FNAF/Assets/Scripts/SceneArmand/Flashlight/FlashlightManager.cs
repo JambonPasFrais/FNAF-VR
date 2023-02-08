@@ -56,20 +56,26 @@ public class FlashlightManager : MonoBehaviour
 
     private void UpdateLightState()
     {
-        if (BatteryDuration > LightStateTimings[0])
+        if (BatteryDuration > LightStateTimings[0] && LightState != LightState.Bright)
         {
+            _currentLight.SetActive(false);
             LightState = LightState.Bright;
             _currentLight = BrightLight;
+            _currentLight.SetActive(true);
         }
-        else if (BatteryDuration <= LightStateTimings[0] && BatteryDuration > LightStateTimings[1])
+        else if (BatteryDuration <= LightStateTimings[0] && BatteryDuration > LightStateTimings[1] && LightState != LightState.Fade)
         {
+            _currentLight.SetActive(false);
             LightState = LightState.Fade;
             _currentLight = FadeLight;
+            _currentLight.SetActive(true);
         }
-        else
+        else if (BatteryDuration <= LightStateTimings[1] && LightState != LightState.Obscure)
         {
+            _currentLight.SetActive(false);
             LightState = LightState.Obscure;
             _currentLight = ObscureLight;
+            _currentLight.SetActive(true);
         }
     }
     
