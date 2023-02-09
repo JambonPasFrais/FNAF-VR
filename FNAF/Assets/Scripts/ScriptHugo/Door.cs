@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] private AudioSource[] _doorShutSound;
     private bool _isShutting = false;
     private float _shutForce = 0;
-    public void ShutDoor(float force)
+
+    public DoorParent DoorParentRef;
+
+    public void ShutDoor()
     {
         _isShutting= true;
         _doorShutSound[Random.Range(0, 2)].Play();
-        _shutForce= force;
+        _shutForce = Random.Range(3, 10);
+
+        DoorParentRef.RestoreDoor();
+
+        //  GetComponent<XRGrabInteractable>().enabled = false;
     }
 
     private void FixedUpdate()

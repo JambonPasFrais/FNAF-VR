@@ -10,19 +10,45 @@ public class TeleportHallWay : MonoBehaviour
 
     float rotation = 0;
 
-    private void OnCollisionEnter(Collision collision)
+    //public Door ClosedDoor;
+
+    public GameObject NextDetection;
+
+    GameManager _gameManager;
+
+    public GameObject[] DoorParents;
+
+    int _nbOfTP = 0;
+
+    private void Awake()
     {
-        
+        _gameManager = GameManager.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Je passe dans la zone de tp");
+        _nbOfTP = _nbOfTP % 2;
+
+        DoorParents[_nbOfTP].GetComponentInChildren<Door>().ShutDoor();
+        
+
+        StartCoroutine(WaitBeforeContinue());
+    }
+
+    IEnumerator WaitBeforeContinue()
+    {
+        yield return new WaitForSeconds(5f);
+
+        _gameManager.IsTeleporting = true;
 
         Hallway.transform.position = HTPPoint.position;
 
         rotation += 90;
 
         Hallway.transform.rotation = Quaternion.Euler(0, rotation, 0);
+
+        NextDetection.SetActive(true);
+
+        gameObject.SetActive(false);
     }
 }
