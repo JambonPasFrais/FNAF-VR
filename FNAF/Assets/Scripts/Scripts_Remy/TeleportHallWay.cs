@@ -10,9 +10,15 @@ public class TeleportHallWay : MonoBehaviour
 
     float rotation = 0;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Je passe dans la zone de tp");
+
         Hallway.transform.position = HTPPoint.position;
 
         rotation += 90;
