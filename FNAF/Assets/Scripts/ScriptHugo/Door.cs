@@ -5,33 +5,45 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private AudioSource[] _doorShutSound;
-    [SerializeField] private AudioSource[] _doorMovingSound;
+    [SerializeField] private AudioClip[] _doorShutSound;
+    [SerializeField] private AudioClip[] _doorMovingSound;
+    [SerializeField] private AudioSource Sound;
+    [SerializeField] private AudioSource _currentSound;
     private bool _isShutting = false;
     public float force;
+    
     public void ShutDoor()
     {
         _isShutting= true;
-        _doorShutSound[Random.Range(0, 2)].Play();
+        Sound.clip =_doorShutSound[Random.Range(0, 2)];
+        Sound.Play();
         GetComponent<XRGrabInteractable>().enabled = false;
     }
 
+ 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.S))
+        if (GetComponent<Rigidbody>().velocity != new Vector3(0, 0, 0) && _currentSound.clip == null)
         {
-            Debug.Log("shut");
-            ShutDoor();
+            Debug.Log("move");
+           _currentSound.clip =  _doorMovingSound[Random.Range(0, 2)];
+            _currentSound.Play();
         }
-        if(GetComponent<Rigidbody>().velocity != new Vector3(0, 0, 0))
+       
+
+        else if(GetComponent<Rigidbody>().velocity == new Vector3(0, 0, 0) && _currentSound != null && _currentSound.isPlaying)
         {
-            _doorMovingSound[Random.Range(0, 2)].Play();
+            _currentSound.Stop();
+            _currentSound.clip = null;
         }
+       
         
     }
     private void FixedUpdate()
     {
         if(_isShutting) this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up*force, ForceMode.Impulse);
         _isShutting = false;
+        
     }
+    
 }

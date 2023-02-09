@@ -779,7 +779,7 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2073650205
+--- !u!114 &2031247756378734050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -792,8 +792,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doorShutSound:
-  - {fileID: 2073650204}
-  - {fileID: 2073650203}
+  - {fileID: 0}
+  - {fileID: 0}
+  _doorMovingSound:
+  - {fileID: 7957182588018949156}
+  - {fileID: 8990106509166201669}
+  force: 10
 --- !u!114 &5450003335368345299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,7 +915,7 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!82 &3565395017833812255
+--- !u!82 &7957182588018949156
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -921,7 +925,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 144c6b02f5eae464bac5975ca7e2435e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b772a8dc1c19991488ed7dbc321ad1a0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1007,7 +1011,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &7809293716450068567
+--- !u!82 &8990106509166201669
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1017,7 +1021,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 87be17d51c150f343bac7465035126d5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e85d91b45997c24aae625cceb25d8f6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1103,21 +1107,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2031247756378734050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2728093001741440585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27f21c0a8816b84bb0748d59c08bd6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _doorShutSound:
-  - {fileID: 7809293716450068567}
-  - {fileID: 3565395017833812255}
 --- !u!4 &5852930666764755467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1917271503008949472, guid: e38ead647e13e7f46aa5d77f4c71f25c, type: 3}
