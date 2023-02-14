@@ -14,10 +14,8 @@ public class Door : MonoBehaviour
     public void ShutDoor()
     {
         _isShutting= true;
-        _doorShutSound[Random.Range(0, 2)].Play();
+        _doorShutSound[Random.Range(0, _doorShutSound.Length)].Play();
         _shutForce = Random.Range(3, 10);
-
-        DoorParentRef.RestoreDoor();
 
         //  GetComponent<XRGrabInteractable>().enabled = false;
     }

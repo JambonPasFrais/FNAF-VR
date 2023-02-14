@@ -4,24 +4,49 @@ using UnityEngine;
 
 public class DoorParent : MonoBehaviour
 {
-    public GameObject DoorBodyPrefab;
-    GameObject _doorParentRef;
-    [SerializeField] Vector3 _doorBodyPosition;
-    [SerializeField] Quaternion _doorBodyRotation;
+    public List<GameObject> Doors = new List<GameObject>();
+    public GameObject DoorPrefab;
+
+    [SerializeField] List<Vector3> _doorPositions = new List<Vector3>();
+    [SerializeField] List<Transform> _doorTransforms = new List<Transform>();
+    [SerializeField] List<Quaternion> _doorRotations = new List<Quaternion>();
+    [SerializeField] int _nbOfDoors;
 
     private void Awake()
     {
-        _doorParentRef = GetComponentInChildren<Door>().gameObject;
-        _doorBodyPosition = _doorParentRef.transform.position;
-        _doorBodyRotation = _doorParentRef.transform.rotation;
+        foreach(var door in Doors)
+        {
+            _doorPositions.Add(door.transform.position);
+            _doorRotations.Add(door.transform.rotation);
+            _doorTransforms.Add(door.transform);
+        }
+
+        _nbOfDoors = Doors.Count;
     }
+
     public void RestoreDoor()
     {
-        Destroy(_doorParentRef);
+        foreach(var door in Doors)
+        {
+            Destroy(door);
+            Doors.Remove(door);
+            _doorPositions.Remove(door.transform.position);
+            _doorRotations.Remove(door.transform.rotation);
+            _doorTransforms.Remove(door.transform);
+        }
 
-        GameObject go = Instantiate(DoorBodyPrefab);
-        go.transform.SetParent(transform, false);
-        go.transform.localPosition = _doorBodyPosition;
-        go.transform.localRotation = _doorBodyRotation;
+        for (int i = 0; i < _nbOfDoors; i++)
+        {
+            GameObject go = Instantiate(DoorPrefab, _doorTransforms[i]);
+        }
+
+        foreach (var door in Doors)
+        {
+            _doorPositions.Add(door.transform.position);
+            _doorRotations.Add(door.transform.rotation);
+            _doorTransforms.Add(door.transform);
+        }
+
+        _nbOfDoors = Doors.Count;
     }
 }
