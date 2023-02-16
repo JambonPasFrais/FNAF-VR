@@ -9,7 +9,12 @@ public class SoundEffectSwitcher : MonoBehaviour
     public AudioClip[] SoundEffects;
 
     private SoundManager _soundManager;
-    
+
+    private void Start()
+    {
+        _soundManager = new SoundManager();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (SoundEffects.Length >= 1)
