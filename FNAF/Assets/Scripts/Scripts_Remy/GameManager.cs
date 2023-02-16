@@ -7,11 +7,18 @@ public class GameManager : MonoBehaviour
     public AudioClip Clip;
     public AudioSource Source;
     System.Random rand = new System.Random();
-    
+
+    public static GameManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+    }
+
     void Start()
     {
         Source.clip = Clip;
-        StartCoroutine("PlaySound", rand.Next(3, 10));
+        //StartCoroutine("PlaySound", rand.Next(3, 10));
     }
 
     IEnumerator PlaySound(int time)
