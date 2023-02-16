@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SceneArmand.Flashlight;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Random = System.Random;
 
 public class FlashlightManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class FlashlightManager : MonoBehaviour
     public GameObject BrightLight;
     public GameObject FadeLight;
     public GameObject ObscureLight;
+    public AudioClip SwitchOnOffSound;
+    public AudioClip KnockDownSound;
+    public AudioClip FlickingSound;
 
     [SerializeField] private GameObject _currentLight;
     
@@ -19,8 +23,12 @@ public class FlashlightManager : MonoBehaviour
     public float BatteryCoefficient;
     public LightState LightState;
     public List<float> LightStateTimings = new List<float>();
+    public int[] FlickingTimingRange;
 
     [SerializeField]private bool _isOn;
+
+    private SoundManager _soundManager;
+    private float _timeBeforeFlicking;
     
     // Start is called before the first frame update
     void Start()
@@ -33,14 +41,26 @@ public class FlashlightManager : MonoBehaviour
         _currentLight.SetActive(false);
         LightState = LightState.Bright;
         _isOn = false;
+
+        Random rd = new Random();
+        _timeBeforeFlicking = rd.Next(FlickingTimingRange[0], FlickingTimingRange[1]);
     }
 
     private void Update()
     {
-        if (_isOn && LightState != LightState.Obscure)
+        if (_isOn)
         {
-            BatteryDuration -= Time.deltaTime;
-            UpdateLightState();
+            _timeBeforeFlicking -= Time.deltaTime;
+            if (_timeBeforeFlicking <= 0)
+            {
+                FlickLight();
+            }
+            
+            if (LightState != LightState.Obscure)
+            {
+                BatteryDuration -= Time.deltaTime;
+                UpdateLightState();
+            }
         }
     }
 
@@ -51,6 +71,11 @@ public class FlashlightManager : MonoBehaviour
             Destroy(other.gameObject);
             BatteryDuration += BatteryCoefficient;
             UpdateLightState();
+        }
+
+        if (other.gameObject.GetComponent<GroundComponent>())
+        {
+            _soundManager.PlayAudioClip(KnockDownSound);
         }
     }
 
@@ -85,6 +110,11 @@ public class FlashlightManager : MonoBehaviour
             TurnOffLight();
         else
             TurnOnLight();
+        
+        if (SwitchOnOffSound != null)
+        {
+            _soundManager.PlayAudioClip(SwitchOnOffSound);
+        }
     }
     
     private void TurnOnLight()
@@ -97,5 +127,16 @@ public class FlashlightManager : MonoBehaviour
     {
         _currentLight.SetActive(false);
         _isOn = false;
+    }
+
+    private void FlickLight()
+    {
+        
+    }
+
+    private IEnumerator FlickOnOff()
+    {
+        _currentLight.SetActive(!_currentLight.activeSelf);
+        yield return new WaitForSeconds(0.2f);
     }
 }

@@ -7,6 +7,8 @@ using Random = System.Random;
 public class SoundEffectSwitcher : MonoBehaviour
 {
     public AudioClip[] SoundEffects;
+
+    private SoundManager _soundManager;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -16,16 +18,9 @@ public class SoundEffectSwitcher : MonoBehaviour
             Random rd = new Random();
             int randomIndex = rd.Next(0, SoundEffects.Length - 1);
             AudioClip choice = SoundEffects[randomIndex];
+
+            _soundManager.PlayAudioClip(choice);
             
-            //Create Game Object
-            GameObject go = new GameObject();
-            go.name = choice.name;
-            AudioSource source = go.AddComponent<AudioSource>();
-            source.clip = choice;
-            source.Play();
-            
-            //Handle after Sound
-            GameObject.Destroy(go, source.clip.length);
             gameObject.SetActive(false);
         }
     }
