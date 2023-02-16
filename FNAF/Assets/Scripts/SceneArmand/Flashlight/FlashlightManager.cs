@@ -16,8 +16,6 @@ public class FlashlightManager : MonoBehaviour
     public AudioClip KnockDownSound;
     public AudioClip FlickingSound;
 
-    [SerializeField] private GameObject _currentLight;
-    
     [Header("GD")]
     public float BatteryDuration;
     public float BatteryCoefficient;
@@ -25,25 +23,31 @@ public class FlashlightManager : MonoBehaviour
     public List<float> LightStateTimings = new List<float>();
     public int[] FlickingTimingRange;
 
-    [SerializeField]private bool _isOn;
+    [Header("GA")] 
+    public float TimeBetweenFlicks;
 
+    //Light
+    [SerializeField] private bool _isOn;
+    private GameObject _currentLight;
+    //Sound
     private SoundManager _soundManager;
+    //Flick
     private float _timeBeforeFlicking;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(LightAction);
-
-        _currentLight = BrightLight;
         
+        _currentLight = BrightLight;
         _currentLight.SetActive(false);
         LightState = LightState.Bright;
         _isOn = false;
 
-        Random rd = new Random();
-        _timeBeforeFlicking = rd.Next(FlickingTimingRange[0], FlickingTimingRange[1]);
+        _soundManager = new SoundManager();
+        
+        GenerateTimeBeforeFlicking();
     }
 
     private void Update()
@@ -103,7 +107,9 @@ public class FlashlightManager : MonoBehaviour
             _currentLight.SetActive(true);
         }
     }
-    
+
+    #region LightButtonListener
+
     private void LightAction(ActivateEventArgs arg)
     {
         if (_isOn)
@@ -129,14 +135,41 @@ public class FlashlightManager : MonoBehaviour
         _isOn = false;
     }
 
+    #endregion
+
+    #region FlickingLight
+
     private void FlickLight()
     {
-        
+        _soundManager.PlayAudioClip(FlickingSound);
+
+        StartCoroutine(FlickOnOff());
+
+        GenerateTimeBeforeFlicking();
     }
 
     private IEnumerator FlickOnOff()
     {
-        _currentLight.SetActive(!_currentLight.activeSelf);
-        yield return new WaitForSeconds(0.2f);
+        _currentLight.SetActive(false);
+        yield return new WaitForSeconds(TimeBetweenFlicks);
+        _currentLight.SetActive(true);
+        yield return new WaitForSeconds(TimeBetweenFlicks);
+        
+        _currentLight.SetActive(false);
+        yield return new WaitForSeconds(TimeBetweenFlicks);
+        _currentLight.SetActive(true);
+        yield return new WaitForSeconds(TimeBetweenFlicks);
+
+        _currentLight.SetActive(false);
+        yield return new WaitForSeconds(TimeBetweenFlicks);
+        _currentLight.SetActive(true);
     }
+
+    private void GenerateTimeBeforeFlicking()
+    {
+        Random rd = new Random();
+        _timeBeforeFlicking = rd.Next(FlickingTimingRange[0], FlickingTimingRange[1]);
+    }
+
+    #endregion
 }
