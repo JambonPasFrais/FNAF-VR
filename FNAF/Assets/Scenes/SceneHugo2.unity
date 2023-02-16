@@ -1521,7 +1521,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25790
+  m_Name: pb_Mesh61784
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1755,11 +1755,6 @@ MonoBehaviour:
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
---- !u!1 &168037849 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1130842716983982, guid: ae07f5a7e50d802419d96b04791e8cc0, type: 3}
-  m_PrefabInstance: {fileID: 1140438764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200587353
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,7 +4878,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2247277c54360142a248e9301aa3f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Light: {fileID: 168037849}
+  BrightLight: {fileID: 0}
+  FadeLight: {fileID: 0}
+  ObscureLight: {fileID: 0}
+  _currentLight: {fileID: 0}
+  BatteryDuration: 0
+  BatteryCoefficient: 0
+  LightState: 0
+  LightStateTimings: []
+  _isOn: 0
 --- !u!1 &1142202342
 GameObject:
   m_ObjectHideFlags: 0
@@ -6982,14 +6985,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1654973426}
     m_Modifications:
-    - target: {fileID: 5450003333524204492, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
-      propertyPath: m_Size.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450003333524204492, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
-      propertyPath: m_Size.z
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5450003334117749377, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -7037,22 +7032,6 @@ PrefabInstance:
     - target: {fileID: 5450003334117749406, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
       propertyPath: m_Name
       value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450003335215939806, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
-      propertyPath: m_Size.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450003335215939806, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
-      propertyPath: m_Size.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450003335215939806, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
-      propertyPath: m_Center.y
-      value: 0.22739619
-      objectReference: {fileID: 0}
-    - target: {fileID: 5450003335215939806, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
-      propertyPath: m_Center.z
-      value: -0.41727406
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
@@ -7106,7 +7085,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35500
+  m_Name: pb_Mesh61852
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7364,7 +7343,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25940
+  m_Name: pb_Mesh62148
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
