@@ -33,14 +33,16 @@ public class TeleportHallWay : MonoBehaviour
     {
         _gameManager = GameManager.Instance;
 
-        ActualiseDoors();
+        if(DoorsToTeleport != null)
+            ActualiseDoors();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         _nbOfTP = _nbOfTP % 2;
 
-        DoorToShut.ShutDoor();
+        if(DoorToShut != null)
+            DoorToShut.ShutDoor();
 
         StartCoroutine(WaitBeforeContinue());
     }
@@ -59,13 +61,16 @@ public class TeleportHallWay : MonoBehaviour
         _rotation += 90;
 
         Hallway.transform.rotation = Quaternion.Euler(0, _rotation, 0);
-
-        for (int i = 0; i < _nbOfDoors; i++)
+        if(_nbOfDoors > 0)
         {
-            GameObject go = Instantiate(DoorPrefab, _doorTransforms[i]);
-            go.transform.SetParent(DoorsToTeleport[0].transform);
 
-            if(i == 0) DoorToShut = go.GetComponentInChildren<Door>();
+            for (int i = 0; i < _nbOfDoors; i++)
+            {
+                GameObject go = Instantiate(DoorPrefab, _doorTransforms[i]);
+                go.transform.SetParent(DoorsToTeleport[i].transform);
+
+                if(i == 0) DoorToShut = go.GetComponentInChildren<Door>();
+            }
         }
 
         NextDetection.SetActive(true);

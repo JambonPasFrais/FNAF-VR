@@ -5249,7 +5249,9 @@ MonoBehaviour:
   HTPPoint: {fileID: 1166047466}
   NextDetection: {fileID: 1332320828}
   DoorToShut: {fileID: 5852930667105298799}
-  DoorsToTeleport: []
+  DoorsToTeleport:
+  - {fileID: 5450003335171608059}
+  - {fileID: 5450003334046267896}
   DoorPrefab: {fileID: 4093880538253692830, guid: 9baed3690880d7442b90284f56430f98, type: 3}
   _doorTransforms: []
   _nbOfDoors: 0
