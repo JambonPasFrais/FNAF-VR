@@ -18,6 +18,7 @@ public class TVSwitcher : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _soundManager.LoopAudioClip(SoundEffect);
+        gameObject.SetActive(false);
         TVLight.SetActive(true);
     }
 }

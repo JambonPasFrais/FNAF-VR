@@ -24,7 +24,8 @@ public class SoundManager
         go.name = clip.name;
         AudioSource source = go.AddComponent<AudioSource>();
         source.clip = clip;
-        source.Play();
         source.loop = true;
+        source.Play();
+        
     }
 }
