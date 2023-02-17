@@ -8,6 +8,7 @@ public class TeleportHallWay : MonoBehaviour
     [Header("Teloprtation Informations")]
     public GameObject Hallway;  // Hallway to teleport
     public Transform HTPPoint;  // Hallway Teleportation Point
+    public GameObject BackWallsRoom;
 
     float _rotation = 0;
 
@@ -39,17 +40,22 @@ public class TeleportHallWay : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _nbOfTP = _nbOfTP % 2;
+        if(other.tag == "Player")
+        {
+            BackWallsRoom.SetActive(false);
 
-        if(DoorToShut != null)
-            DoorToShut.ShutDoor();
+            _nbOfTP = _nbOfTP % 2;
 
-        StartCoroutine(WaitBeforeContinue());
+            if (DoorToShut != null)
+                DoorToShut.ShutDoor();
+
+            StartCoroutine(WaitBeforeContinue());
+        }
     }
 
     IEnumerator WaitBeforeContinue()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
 
         foreach(var door in DoorsToTeleport) 
         {
@@ -61,7 +67,8 @@ public class TeleportHallWay : MonoBehaviour
         _rotation += 90;
 
         Hallway.transform.rotation = Quaternion.Euler(0, _rotation, 0);
-        if(_nbOfDoors > 0)
+
+        if (_nbOfDoors > 0)
         {
 
             for (int i = 0; i < _nbOfDoors; i++)
