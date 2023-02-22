@@ -3523,7 +3523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &314364033
 Transform:
   m_ObjectHideFlags: 0
@@ -4849,7 +4849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &468855701
 Transform:
   m_ObjectHideFlags: 0
@@ -10937,8 +10937,10 @@ MonoBehaviour:
   BackWallsRoom: {fileID: 1282851325}
   NextDetection: {fileID: 1332320828}
   DoorToShut: {fileID: 0}
-  DoorsToTeleport: []
-  DoorPrefab: {fileID: 5450003334117749406, guid: b44e7afcb7bc4a846aef312196f089f1, type: 3}
+  DoorsToTeleport:
+  - {fileID: 1036312375}
+  - {fileID: 1968280670}
+  DoorPrefab: {fileID: 5450003334117749406, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
   _doorTransforms: []
   _nbOfDoors: 0
 --- !u!65 &1068001938
