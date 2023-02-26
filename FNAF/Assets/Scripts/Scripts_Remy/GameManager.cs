@@ -9,21 +9,19 @@ public class GameManager : MonoBehaviour
     public AudioClip Clip;
     public AudioSource Source;
     public GameObject LockedDoorPrefab;
-    public GameObject[] LockedDoorsGO;
+    public GameObject LockedDoorsGO;
     public int NbOfTeleportations = 0;
+    public GameObject WallLockedDoor;
 
     System.Random rand = new System.Random();
-    List<Transform> _lockedDoorsPosition = new List<Transform>();
+    Transform _lockedDoorsPosition;
 
     public static GameManager Instance;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
-        foreach (var doors in LockedDoorsGO)
-        {
-            _lockedDoorsPosition.Add(doors.transform);
-        }
+        _lockedDoorsPosition = LockedDoorsGO.transform;
     }
 
     void Start()
@@ -42,9 +40,16 @@ public class GameManager : MonoBehaviour
 
     public void LockTheDoor()
     {
-        Destroy(LockedDoorsGO[NbOfTeleportations % 2].transform.GetChild(0).gameObject);
+        if (NbOfTeleportations % 2 == 1)
+        {
+            WallLockedDoor.SetActive(false);
+            Destroy(LockedDoorsGO.transform.GetChild(0).gameObject);
 
-        GameObject go = Instantiate(LockedDoorPrefab, _lockedDoorsPosition[NbOfTeleportations % 2]);
-        go.transform.SetParent(LockedDoorsGO[NbOfTeleportations % 2].transform);
+            GameObject go = Instantiate(LockedDoorPrefab, _lockedDoorsPosition);
+            go.transform.SetParent(LockedDoorsGO.transform);
+        }
+        else WallLockedDoor.SetActive(true);
+
+        
     }
 }
