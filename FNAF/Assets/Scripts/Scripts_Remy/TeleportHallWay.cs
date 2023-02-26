@@ -42,6 +42,8 @@ public class TeleportHallWay : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            _gameManager.NbOfTeleportations++;
+
             BackWallsRoom.SetActive(false);
 
             _nbOfTP = _nbOfTP % 2;
@@ -65,6 +67,8 @@ public class TeleportHallWay : MonoBehaviour
         Hallway.transform.position = HTPPoint.position;
 
         _rotation += 90;
+
+        _gameManager.LockTheDoor();
 
         Hallway.transform.rotation = Quaternion.Euler(0, _rotation, 0);
 
