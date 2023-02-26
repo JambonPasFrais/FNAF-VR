@@ -42,6 +42,9 @@ public class TeleportHallWay : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            _gameManager.NbOfTeleportations++;
+            _gameManager.LockTheDoor();
+
             BackWallsRoom.SetActive(false);
 
             _nbOfTP = _nbOfTP % 2;
