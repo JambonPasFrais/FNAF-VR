@@ -57,7 +57,7 @@ public class TeleportHallWay : MonoBehaviour
 
     IEnumerator WaitBeforeContinue()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
 
         foreach(var door in DoorsToTeleport) 
         {

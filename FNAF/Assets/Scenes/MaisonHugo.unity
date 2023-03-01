@@ -1809,6 +1809,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5956009430308174587, guid: b01ac49eceb172545bfa24f0c0c66cb6, type: 3}
   m_PrefabInstance: {fileID: 132217867}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &135258899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2031247756378734050, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
+  m_PrefabInstance: {fileID: 531181379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27f21c0a8816b84bb0748d59c08bd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &138679812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12044,6 +12055,7 @@ GameObject:
   - component: {fileID: 993458925}
   - component: {fileID: 993458924}
   - component: {fileID: 993458929}
+  - component: {fileID: 993458930}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Player
@@ -12063,7 +12075,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b911662f2b94547e8a834cff9d26a788, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.018
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12213,6 +12225,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &993458930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993458923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91543a57934e1f41a86d586612bcdaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additionalHeight: 0.2
 --- !u!1001 &1002858424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12953,7 +12978,7 @@ MonoBehaviour:
   HTPPoint: {fileID: 1166047466}
   BackWallsRoom: {fileID: 1282851325}
   NextDetection: {fileID: 1332320828}
-  DoorToShut: {fileID: 0}
+  DoorToShut: {fileID: 1134015913}
   DoorsToTeleport:
   - {fileID: 1036312375}
   - {fileID: 1968280670}
@@ -13965,6 +13990,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5956009430308174587, guid: b01ac49eceb172545bfa24f0c0c66cb6, type: 3}
   m_PrefabInstance: {fileID: 1130747956}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1134015913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2031247756378734050, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
+  m_PrefabInstance: {fileID: 815971655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27f21c0a8816b84bb0748d59c08bd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1150415175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15896,7 +15932,7 @@ MonoBehaviour:
   HTPPoint: {fileID: 1487274196}
   BackWallsRoom: {fileID: 1282851325}
   NextDetection: {fileID: 1068001935}
-  DoorToShut: {fileID: 0}
+  DoorToShut: {fileID: 135258899}
   DoorsToTeleport: []
   DoorPrefab: {fileID: 5450003334117749406, guid: d525d0cf75ecb2047bd8a10856abf486, type: 3}
   _doorTransforms: []
