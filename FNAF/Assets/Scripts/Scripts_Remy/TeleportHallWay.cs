@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TeleportHallWay : MonoBehaviour
 {
-    [Header("Teloprtation Informations")]
+    [Header("Telportation Informations")]
     public GameObject Hallway;  // Hallway to teleport
     public Transform HTPPoint;  // Hallway Teleportation Point
     public GameObject BackWallsRoom;
