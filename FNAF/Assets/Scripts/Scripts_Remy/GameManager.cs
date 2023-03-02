@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public Collider StartHallwayEventCollider;
     public List<GameObject> Lights;
     public int TurnCount = 0;
+    public GameObject DoorPrefab;
+    public GameObject DoorTVRoom;
 
     System.Random rand = new System.Random();
     Transform _lockedDoorsPosition;

@@ -8,6 +8,7 @@ public class Events : MonoBehaviour
     public AudioClip[] GlassSoundEffects;
     public AudioClip[] DoorSoundEffects;
     public AudioSource[] _sources;
+    
 
    
     private void OnTriggerEnter(Collider other)
@@ -31,15 +32,38 @@ public class Events : MonoBehaviour
 
         }
 
-        if(GameManager.Instance.TurnCount == 4) {
-           
+        if(GameManager.Instance.TurnCount == 3) 
+        {
+            Destroy(GameManager.Instance.DoorTVRoom.transform.GetChild(0).gameObject);
+            
+            GameObject go = Instantiate(GameManager.Instance.DoorPrefab, GameManager.Instance.DoorTVRoom.transform);
+            go.transform.SetParent(GameManager.Instance.DoorTVRoom.transform);  
+            
+            StartCoroutine(OpenDoorWait(go));
+        }
+
+        else if(GameManager.Instance.TurnCount == 4)
+        {
+            Destroy(GameManager.Instance.DoorTVRoom.transform.GetChild(0));
+
+            GameObject go = Instantiate(GameManager.Instance.LockedDoorPrefab);
+            go.transform.SetParent(GameManager.Instance.DoorTVRoom.transform);
+        }
+
+        IEnumerator OpenDoorWait(GameObject go)
+        {
+            yield return new WaitForSeconds(5f);
+
+            go.transform.GetComponentInChildren<Door>().OpenDoor();
+
+            gameObject.SetActive(false);
         }
 
         IEnumerator StopSound(int source, float time)
         {
             yield return new WaitForSeconds(time);
             _sources[source].Stop();
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

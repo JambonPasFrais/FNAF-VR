@@ -12,7 +12,7 @@ public class TeleportHallWay : MonoBehaviour
 
     float _rotation = 0;
 
-    //public Door ClosedDoor;
+    public GameObject[] FloorCrackingDetections;
 
     public GameObject NextDetection;
 
@@ -24,7 +24,7 @@ public class TeleportHallWay : MonoBehaviour
 
     [Header("Doors Teleportation")]
     public List<GameObject> DoorsToTeleport = new List<GameObject>();
-    public GameObject DoorPrefab;
+    
 
     [SerializeField] List<Transform> _doorTransforms = new List<Transform>();
     [SerializeField] int _nbOfDoors;
@@ -52,6 +52,13 @@ public class TeleportHallWay : MonoBehaviour
                 DoorToShut.transform.GetChild(0).transform.GetComponentInChildren<Door>().ShutDoor();
 
             StartCoroutine(WaitBeforeContinue());
+            if(FloorCrackingDetections != null)
+            {
+                foreach (GameObject detection in FloorCrackingDetections)
+                {
+                    detection.SetActive(true);
+                }
+            }
         }
     }
 
@@ -74,10 +81,9 @@ public class TeleportHallWay : MonoBehaviour
 
         if (_nbOfDoors > 0)
         {
-
             for (int i = 0; i < _nbOfDoors; i++)
             {
-                GameObject go = Instantiate(DoorPrefab, _doorTransforms[i]);
+                GameObject go = Instantiate(GameManager.Instance.DoorPrefab, _doorTransforms[i]);
                 go.transform.SetParent(DoorsToTeleport[i].transform);
 
             }

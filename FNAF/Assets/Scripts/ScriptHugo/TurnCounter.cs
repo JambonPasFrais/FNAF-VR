@@ -28,19 +28,19 @@ public class TurnCounter : MonoBehaviour
                 break;
             case 3:
                 source.Play();
-                foreach (GameObject light in GameManager.Instance.Lights)
+
+                for (int i = 0; i < GameManager.Instance.Lights.Count; i++)
                 {
-                    if(GameManager.Instance.Lights.IndexOf(light) != 2 || GameManager.Instance.Lights.IndexOf(light) != 4)
-                    {
-                        light.GetComponent<Light>().intensity = 0;
-                    }
+                    if (i == 2)
+                        Debug.Log("Lampe 2");
+                    else if (i == 4)
+                        Debug.Log("Lampe 4");
+                    else if (i == 7)
+                        Debug.Log("Lampe 7");
+                    else
+                        GameManager.Instance.Lights[i].GetComponentInChildren<Light>().intensity = 0;
                 }
-                break;
-                case 4:
-                foreach (GameObject light in GameManager.Instance.Lights)
-                {
-                    light.GetComponentInChildren<Light>().color = new Color(255, 127, 127);
-                }
+               
                 break;
             default:
                 break;

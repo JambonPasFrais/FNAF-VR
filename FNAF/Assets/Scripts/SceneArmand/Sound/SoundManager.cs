@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class SoundManager
 {
+    AudioSource _source;
+
     public void PlayAudioClip(AudioClip clip)
     {
         //Create Game Object
         GameObject go = new GameObject();
         go.name = clip.name;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.clip = clip;
-        source.Play();
+        _source = go.AddComponent<AudioSource>();
+        _source.clip = clip;
+        _source.Play();
             
         //Handle after Sound
-        GameObject.Destroy(go, source.clip.length);
+        GameObject.Destroy(go, _source.clip.length);
     }
 
     public void LoopAudioClip(AudioClip clip)
@@ -22,10 +24,14 @@ public class SoundManager
         //Create Game Object
         GameObject go = new GameObject();
         go.name = clip.name;
-        AudioSource source = go.AddComponent<AudioSource>();
-        source.clip = clip;
-        source.loop = true;
-        source.Play();
-        
+        _source = go.AddComponent<AudioSource>();
+        _source.clip = clip;
+        _source.loop = true;
+        _source.Play();
+    }
+
+    public void StopSound()
+    {
+        _source.Stop();
     }
 }

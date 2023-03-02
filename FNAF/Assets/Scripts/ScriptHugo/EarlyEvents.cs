@@ -10,22 +10,19 @@ public class EarlyEvents : MonoBehaviour
     {
         switch (GameManager.Instance.TurnCount)
         {
-            
-            case 4:
+            case 3:
                 Door.transform.GetChild(0).transform.GetComponentInChildren<Door>().OpenDoor();
                 StartCoroutine(DoorEventEnd());
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 break;
             default:
                 break;
-        }
-
-
-        
+        }  
     }
 
     IEnumerator DoorEventEnd() {
         yield return new WaitForSeconds(3f);
         Door.transform.GetChild(0).transform.GetComponentInChildren<Door>().ShutDoor();
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
