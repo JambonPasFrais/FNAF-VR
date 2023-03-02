@@ -18,7 +18,7 @@ public class TeleportHallWay : MonoBehaviour
 
     GameManager _gameManager;
 
-    public Door DoorToShut;
+    public GameObject DoorToShut;
 
     int _nbOfTP = 0;
 
@@ -49,7 +49,7 @@ public class TeleportHallWay : MonoBehaviour
             _nbOfTP = _nbOfTP % 2;
 
             if (DoorToShut != null)
-                DoorToShut.ShutDoor();
+                DoorToShut.transform.GetChild(0).transform.GetComponentInChildren<Door>().ShutDoor();
 
             StartCoroutine(WaitBeforeContinue());
         }
@@ -57,7 +57,7 @@ public class TeleportHallWay : MonoBehaviour
 
     IEnumerator WaitBeforeContinue()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         foreach(var door in DoorsToTeleport) 
         {
@@ -80,7 +80,6 @@ public class TeleportHallWay : MonoBehaviour
                 GameObject go = Instantiate(DoorPrefab, _doorTransforms[i]);
                 go.transform.SetParent(DoorsToTeleport[i].transform);
 
-                if(i == 0) DoorToShut = go.GetComponentInChildren<Door>();
             }
         }
 

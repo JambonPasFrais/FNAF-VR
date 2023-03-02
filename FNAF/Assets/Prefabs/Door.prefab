@@ -844,7 +844,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b772a8dc1c19991488ed7dbc321ad1a0, type: 3}
   Sound: {fileID: 1695815568}
   _currentSound: {fileID: 1695815569}
-  force: 10
+  Shutforce: 8
+  Openforce: 3
 --- !u!114 &5450003335368345299
 MonoBehaviour:
   m_ObjectHideFlags: 0

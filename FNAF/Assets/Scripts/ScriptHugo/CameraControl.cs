@@ -7,8 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class CameraControl : MonoBehaviour
 {
-    private XROrigin _origin;
-    private CharacterController _character;
+    public XROrigin _origin;
+    public CharacterController _character;
     public float additionalHeight = 0.2f;
     
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class CameraControl : MonoBehaviour
 
     private void FollowHeadset()
     {
-        _character.height = _origin.CameraInOriginSpaceHeight+ additionalHeight;
+        _character.height = _origin.CameraInOriginSpaceHeight + additionalHeight;
         Vector3 capsuleCenter = transform.InverseTransformPoint(_origin.Camera.gameObject.transform.position);
         _character.center = new Vector3(capsuleCenter.x, _character.height/2 + _character.skinWidth, capsuleCenter.z);
     }

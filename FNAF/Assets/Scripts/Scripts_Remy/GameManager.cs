@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject LockedDoorsGO;
     public int NbOfTeleportations = 0;
     public GameObject WallLockedDoor;
+    public Collider MiddleHallwayEventCollider;
+    public Collider StartHallwayEventCollider;
+    public int TurnCount = 0;
 
     System.Random rand = new System.Random();
     Transform _lockedDoorsPosition;
@@ -52,4 +55,8 @@ public class GameManager : MonoBehaviour
 
         
     }
+
+  
+
+
 }

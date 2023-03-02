@@ -10,7 +10,9 @@ public class Door : MonoBehaviour
     [SerializeField] private AudioSource Sound;
     [SerializeField] private AudioSource _currentSound;
     private bool _isShutting = false;
-    public float force;
+    private bool _isOpening = false;
+    public float Shutforce;
+    public float Openforce;
     
     public void ShutDoor()
     {
@@ -20,6 +22,10 @@ public class Door : MonoBehaviour
         GetComponent<XRGrabInteractable>().enabled = false;
     }
 
+    public void OpenDoor()
+    {
+        _isOpening = true;
+    }
  
     private void Update()
     {
@@ -41,9 +47,11 @@ public class Door : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(_isShutting) this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up*force, ForceMode.Impulse);
+        if(_isShutting) this.gameObject.GetComponent<Rigidbody>().AddForce(transform.up*Shutforce, ForceMode.Impulse);
         _isShutting = false;
-        
+        if (_isOpening) this.gameObject.GetComponent<Rigidbody>().AddForce(-transform.up * Openforce, ForceMode.Impulse);
+        _isOpening = false;
+
     }
     
 }
