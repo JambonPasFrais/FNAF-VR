@@ -28,14 +28,18 @@ public class Events : MonoBehaviour
             _sources[1].clip = DoorSoundEffects[0];
             _sources[1].Play();
             StartCoroutine(StopSound(1,1.1f));
-            this.gameObject.SetActive(false);
+
+        }
+
+        if(GameManager.Instance.TurnCount == 4) {
+           
         }
 
         IEnumerator StopSound(int source, float time)
         {
             yield return new WaitForSeconds(time);
             _sources[source].Stop();
-
+            this.gameObject.SetActive(false);
         }
     }
 }

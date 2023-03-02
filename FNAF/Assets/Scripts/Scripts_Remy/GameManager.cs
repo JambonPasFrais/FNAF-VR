@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject WallLockedDoor;
     public Collider MiddleHallwayEventCollider;
     public Collider StartHallwayEventCollider;
+    public List<GameObject> Lights;
     public int TurnCount = 0;
 
     System.Random rand = new System.Random();
